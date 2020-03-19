@@ -31,6 +31,7 @@ def send():
 
     plt.figure("Risultati COVID-19 Italia", figsize=(9.8, 5.0))
     plt.plot(days, results, 'b-+')
+    plt.grid()
 
     strImg = "img.png"
     if os.path.isfile(strImg):
@@ -42,9 +43,11 @@ def send():
     return
 
 schedule.every().day.at("19:30").do(send)
+
 while True:
     schedule.run_pending()
     time.sleep(60)
+
     
 
 
