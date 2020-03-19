@@ -29,7 +29,8 @@ def send():
 
     plt.rcParams.update({'xtick.labelsize': 4})
 
-    plt.figure("Risultati COVID-19 Italia", figsize=(9.8, 5.0))
+    plt.figure("Risultati COVID-19 Italia", figsize=(9.0, 5.0))
+    plt.ylabel("[contagi/tamponi]%")
     plt.plot(days, results, 'b-+')
     plt.grid()
 
@@ -47,6 +48,7 @@ schedule.every().day.at("19:30").do(send)
 while True:
     schedule.run_pending()
     time.sleep(60)
+
 
     
 
