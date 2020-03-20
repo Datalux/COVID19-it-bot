@@ -16,7 +16,7 @@ Codice sorgente del bot Telegram **Contagi COVID-19 Italia** (https://t.me/covid
 
 ## Installazione 
 
-1. Eseguire `git clone https://github.com/Datalux/COVID19-it-bot' o scaricare il .zip della repository
+1. Eseguire `git clone https://github.com/Datalux/COVID19-it-bot` o scaricare il .zip della repository
 2. Creare un file `config.json` con la seguente struttura:
 ```
 {
