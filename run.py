@@ -8,7 +8,6 @@ import matplotlib.pyplot as plt
 import matplotlib
 
 setup = Setup.Setup()
-stime = setup.get_time()
 token = setup.get_token()
 channel = setup.get_channel()
 
@@ -39,16 +38,21 @@ def send():
         os.remove(strImg)   
 
     plt.savefig(strImg,  dpi=800, bbox_inches='tight')
-    bot.sendImage(token, channel)   
+
+    today_contagi = res[-1]["totale_casi"] - res[-2]["totale_casi"]
+    today_tamponi = res[-1]["tamponi"] - res[-2]["tamponi"]
+
+    bot.sendImage(token, channel, today_contagi, today_tamponi)   
     
     return
-
-schedule.every().day.at("19:30").do(send)
+'''
+schedule.every().day.at("18:30").do(send)
 
 while True:
     schedule.run_pending()
     time.sleep(60)
-
+'''
+send()
 
     
 
