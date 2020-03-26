@@ -24,6 +24,15 @@ def send():
         v = 0.0
         v = (i["totale_casi"] / i["tamponi"]) * 100
         results.append(v)
+
+    '''vv = (63927/275468)*100
+    results.append(vv)
+    days.append("03-23")
+
+    vv1 = (69176/296964)*100
+    results.append(vv1)
+    days.append("03-24")
+    '''
     
 
     plt.rcParams.update({'xtick.labelsize': 4})
@@ -45,22 +54,9 @@ def send():
     bot.sendImage(token, channel, today_contagi, today_tamponi)   
     
     return
-'''
+
 schedule.every().day.at("18:30").do(send)
 
 while True:
     schedule.run_pending()
     time.sleep(60)
-'''
-send()
-
-    
-
-
-
-
-
-        
-    
-    
-    
