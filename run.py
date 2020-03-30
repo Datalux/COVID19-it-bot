@@ -35,11 +35,12 @@ def send():
     '''
     
 
-    plt.rcParams.update({'xtick.labelsize': 4})
+    plt.rcParams.update({'xtick.labelsize': 6})
 
     plt.figure("Risultati COVID-19 Italia", figsize=(9.0, 5.0))
     plt.ylabel("[contagi/tamponi]%")
     plt.plot(days, results, 'b-+')
+    plt.xticks(days, days, rotation='vertical')
     plt.grid()
 
     strImg = "img.png"
@@ -48,10 +49,10 @@ def send():
 
     plt.savefig(strImg,  dpi=800, bbox_inches='tight')
 
-    today_contagi = res[-1]["totale_casi"] - res[-2]["totale_casi"]
+    today_contagi = res[-1]["totale_casi"] - int(res[-2]["totale_casi"])
     today_tamponi = res[-1]["tamponi"] - res[-2]["tamponi"]
 
-    bot.sendImage(token, channel, today_contagi, today_tamponi)   
+    #bot.sendImage(token, channel, today_contagi, today_tamponi)   
     
     return
 
@@ -60,3 +61,5 @@ schedule.every().day.at("18:30").do(send)
 while True:
     schedule.run_pending()
     time.sleep(60)
+
+    
